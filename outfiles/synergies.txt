@@ -1,0 +1,21 @@
+aphelios: thresh, lulu, rakan, braum
+ashe: zyra, lulu, senna, karma, milio
+caitlyn: morgana, thresh, lux, karma, ashe
+draven: nautilus, rell, pyke, blitzcrank
+ezreal: bard, karma, yuumi, janna
+jhin: zilean thresh, leona, tahm kench
+jinx: thresh, rakan, lulu, milio
+Miss fortune: amumu, leona, rell, nautilus
+samira: nautilus, pyke, rell, alistar
+sivir: taric, bard, rakan, yuumi
+tristana: alistar, nautilus, rell, pyke
+twitch: yuumi, lulu, rakan, taric
+varus (lethality): karma, xerath, vel'koz, senna
+varus (onhit): braum, leona, thresh, rakan
+vayne: lulu, braum, renata, leona
+nilah: soraka, sona, zilean, taric
+kai'sa: nautilus, rell, pyke, leona, blitzcrank
+kalista: thresh, pyke, rell, nautilus
+kog'maw: milio, rakan, lulu, tahm kench
+lucian: milio, nami, yuumi, leona
+xayah: rakan, blitzcrank, nautilus, rell
