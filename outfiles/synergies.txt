@@ -3,7 +3,7 @@ ashe: zyra, lulu, senna, karma, milio
 caitlyn: morgana, thresh, lux, karma, ashe
 draven: nautilus, rell, pyke, blitzcrank
 ezreal: bard, karma, yuumi, janna
-jhin: zilean thresh, leona, tahm kench
+jhin: zilean, thresh, leona, tahm kench
 jinx: thresh, rakan, lulu, milio
 Miss fortune: amumu, leona, rell, nautilus
 samira: nautilus, pyke, rell, alistar
@@ -19,3 +19,4 @@ kalista: thresh, pyke, rell, nautilus
 kog'maw: milio, rakan, lulu, tahm kench
 lucian: milio, nami, yuumi, leona
 xayah: rakan, blitzcrank, nautilus, rell
+thresh: skarner

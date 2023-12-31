@@ -6,6 +6,8 @@ void get_synergies(t_trie *t, char *champ)
     t_trie *end_ptr;
     t_graph *list;
 
+    if (!champ)
+        return ;
     end_ptr = search_tree_from_word(t, champ);
     if (!end_ptr)
     {
@@ -37,7 +39,9 @@ int makeSynergie(t_trie *end_champ_ptr, char *syn_name)
     else
     {
         while (syn_ptr->next)
+        {
             syn_ptr = syn_ptr->next;
+        }
         syn_ptr->next = graphSyn;
     }
     return (0);
@@ -74,16 +78,15 @@ int read_file(char *filename, t_trie *t)
 
     file = fopen(filename, "r");
     if (!file)
-    {
-        (void)fprintf(stderr, "Could not open the file: %s\n", filename);
         return (1);
-    }
     tmp = str;
     while (fgets(tmp, ((CHAMP_MAX_NAME * 10)), file))
     {
         rm_bn(tmp);
         len = my_strlen_delim(tmp, ':');
         champ = my_strldup(tmp, len);
+        if (!champ)
+            return (1);
         tmpChamp = search_tree_from_word(t, champ);
         if (!tmpChamp)
             tmpChamp = create_tree_from_word(t, champ);
@@ -96,11 +99,15 @@ int read_file(char *filename, t_trie *t)
             if (len > 0)
             {
                 synergie = my_strldup(tmp, len);
+                if (!synergie)
+                    return (1);
                 tmpSyn = search_tree_from_word(t, synergie);
                 if (!tmpSyn)
                     tmpSyn = create_tree_from_word(t, synergie);
-                makeSynergie(tmpChamp, synergie);
-                makeSynergie(tmpSyn, champ);
+                if (makeSynergie(tmpChamp, synergie))
+                    return (1);
+                if(makeSynergie(tmpSyn, champ))
+                    return (1);
                 free(synergie);
                 synergie = NULL;
             }
@@ -109,22 +116,23 @@ int read_file(char *filename, t_trie *t)
         champ = NULL;
     }
     fclose(file);
-    return (1);
+    return (0);
 }
 
-int main(void)
+int main(int argc, char *argv[])
 {
     t_trie *root;
-    char champ[] = "xayah";
-    char champ2[] = "varus (onhit)";
-    char champ3[] = "varus";
-    char champ4[] = "thresh";
+    int ret_parse;
+    char *champ;
     
     root = createNode();
-    read_file("outfiles/synergies.txt", root);
-    get_synergies(root, champ);
-    get_synergies(root, champ4);
-    create_digraph(root);
+    champ = (argc > 1) ? argv[1] : NULL;
+    ret_parse = read_file("outfiles/synergies.txt", root);
+    if (ret_parse == 0)
+    {
+        get_synergies(root, champ);
+        create_digraph(root);
+    }
     free_trie(root);
     return (0);
 }

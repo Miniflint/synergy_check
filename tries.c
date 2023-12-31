@@ -19,7 +19,7 @@ int write_dot(FILE *f, t_trie *trie)
             if (trie->childs[i]->synergies)
             {
                 t_graph *tmp = trie->childs[i]->synergies;
-                while (tmp->next)
+                while (tmp)
                 {
                     fprintf(f, "    node_%p [label=\"%s\"]\n", tmp, tmp->champion);
                     fprintf(f, "    node_%zu -> node_%p\n", child_index, tmp);

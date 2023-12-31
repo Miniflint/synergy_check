@@ -9,6 +9,16 @@ void free_linked_list(t_graph *ptr)
     ptr = NULL; 
 }
 
+int my_strchr(char *src, char *needle)
+{
+    int i;
+
+    i = 0;
+    while (src[i] && needle[i] && src[i] == needle[i])
+        i++;
+    return (src[i] - needle[i]);
+}
+
 void my_strcpy(char *dest, char *src)
 {
     unsigned short i;

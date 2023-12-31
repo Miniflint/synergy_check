@@ -28,6 +28,7 @@ unsigned int    my_strlen(char *str);
 void    free_linked_list(t_graph *ptr);
 char    *my_strldup(char *s2, int len);
 void    my_strcpy(char *dest, char *src);
+int     my_strchr(char *src, char *needle);
 int     my_strlen_delim(char *str, char delim);
 void    my_memset(char *str, int c, size_t n);
 
